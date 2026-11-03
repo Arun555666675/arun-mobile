@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563EB" />
+    <title>CampusSpark | College Event Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <span>CampusSpark</span>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#events">Events</a>
+          <a href="#register">Register</a>
+          <a href="#admin">Admin</a>
+          <a href="#feedback">Feedback</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="btn btn-secondary" type="button">Login</button>
+          <button class="btn btn-primary" type="button">Join Now</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="kicker">Student life, amplified</span>
+            <h1>Discover, register, and celebrate campus events.</h1>
+            <p>
+              CampusSpark helps students explore hackathons, cultural fests, sports meets,
+              and leadership programs in one vibrant college event hub.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#register">Reserve Your Spot</a>
+              <a class="btn btn-secondary" href="#events">Explore Events</a>
+            </div>
+            <div class="hero-metrics">
+              <div class="metric">
+                <strong>120+</strong>
+                <span>Events Hosted</span>
+              </div>
+              <div class="metric">
+                <strong>7.8K</strong>
+                <span>Students Active</span>
+              </div>
+              <div class="metric">
+                <strong>94%</strong>
+                <span>Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <span class="event-badge">Featured Event</span>
+            <div class="featured-event">
+              <h3>Innovation Expo 2026</h3>
+              <p>Showcase your ideas, pitch projects, and connect with startups and faculty mentors.</p>
+              <div class="featured-meta">
+                <span>📅 20 Nov 2026</span>
+                <span>🎤 Main Auditorium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Upcoming events</h2>
+              <p>Find your next spotlight moment on campus.</p>
+            </div>
+          </div>
+          <div id="eventGrid" class="cards"></div>
+        </div>
+      </section>
+
+      <section id="register" class="section">
+        <div class="container layout-grid">
+          <div class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Register now</h2>
+                <p>Reserve your seat for the event you want.</p>
+              </div>
+            </div>
+
+            <form id="registerForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@college.edu" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="field">
+                  <label for="college">College</label>
+                  <input id="college" name="college" type="text" placeholder="Your college" required />
+                </div>
+                <div class="field full">
+                  <label for="eventSelect">Select event</label>
+                  <select id="eventSelect" name="eventId" required></select>
+                </div>
+                <div class="field full">
+                  <label for="message">Why are you interested?</label>
+                  <textarea id="message" name="message" placeholder="Tell us a bit about yourself..."></textarea>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Confirm registration</button>
+              <div id="registerNotice" class="notice"></div>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Quick login</h2>
+                <p>Access the student portal.</p>
+              </div>
+            </div>
+
+            <form id="loginForm">
+              <div class="field">
+                <label for="loginEmail">College email</label>
+                <input id="loginEmail" name="email" type="email" placeholder="student@college.edu" required />
+              </div>
+              <div class="field">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" name="password" type="password" placeholder="Enter password" required />
+              </div>
+              <button class="btn btn-primary" type="submit">Login</button>
+              <div id="loginNotice" class="notice"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin" class="section">
+        <div class="container panel">
+          <div class="section-head">
+            <div>
+              <h2>Event dashboard</h2>
+              <p>Live snapshots from the college event office.</p>
+            </div>
+          </div>
+          <div id="adminStats" class="stats-strip"></div>
+        </div>
+      </section>
+
+      <section id="feedback" class="section">
+        <div class="container layout-grid">
+          <div class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Share feedback</h2>
+                <p>Help us make every event better.</p>
+              </div>
+            </div>
+
+            <form id="feedbackForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="feedbackName">Name</label>
+                  <input id="feedbackName" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="feedbackEmail">Email</label>
+                  <input id="feedbackEmail" name="email" type="email" placeholder="you@example.com" required />
+                </div>
+                <div class="field full">
+                  <label for="rating">Rating</label>
+                  <select id="rating" name="rating" required>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Below average</option>
+                    <option value="1">1 - Poor</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="feedbackMessage">Message</label>
+                  <textarea id="feedbackMessage" name="message" placeholder="Tell us what you loved or what we can improve..." required></textarea>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Submit feedback</button>
+              <div id="feedbackNotice" class="notice"></div>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="section-head">
+              <div>
+                <h2>Why students love us</h2>
+              </div>
+            </div>
+            <div class="list">
+              <div><span>✅ Easy registration flow</span></div>
+              <div><span>✅ Smart event discovery</span></div>
+              <div><span>✅ Real-time admin insights</span></div>
+              <div><span>✅ Better campus engagement</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 CampusSpark • College Event Management System</div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
